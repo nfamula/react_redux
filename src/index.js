@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react'; //get react from the modules
 import ReactDOM from 'react-dom';//we have to use the react dom too
 import YTSearch from 'youtube-api-search';
@@ -16,7 +17,11 @@ class App extends Component { //es6 syntax, => is pretty much like function,  it
       selectedVideo: null
     };
 
-    YTSearch({key: API_KEY, term: 'cats'}, (videos) => {
+  this.videoSearch('cats');
+  }
+
+  videoSearch(term) {
+    YTSearch({key: API_KEY, term: term}, (videos) => {
       this.setState({ 
         videos: videos,
         selectedVideo: videos[0]
@@ -25,18 +30,19 @@ class App extends Component { //es6 syntax, => is pretty much like function,  it
   }
 
   render() {
+    const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300)
+    //this is also how google instant search works, so won't search too often and annoy
     return (
 		  <div>
-			 <SearchBar />
-       <VideoDetail video={this.state.selectedVideo} />
-       <VideoList 
+			 <SearchBar onSearchTermChange={videoSearch} />
+        <VideoDetail video={this.state.selectedVideo} />
+        <VideoList 
           onVideoSelect={selectedVideo => this.setState({selectedVideo}) }
           videos={this.state.videos} />
 		  </div>
 	  );//what is with the html? its JSX! only looks like html
   }
 }
-// }
 
 //take this component's generated html
 //put it on the page (in the dom)
