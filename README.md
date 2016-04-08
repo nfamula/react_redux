@@ -1,12 +1,11 @@
-n# ReduxSimpleStarter
+Tutorial completed with Udemy React Redux course instructed by Stephen Grider.
+Video player created using Youtube API. 
+Some skeleton code was initially provided, but the deleted. 
+Course provides a complete walk through starting from scratch.
 
-Interested in learning [Redux](https://www.udemy.com/react-redux/)?
+for more information see the course page: https://www.udemy.com/react-redux/
 
-###Getting Started###
-
-There are two methods for getting started with this repo.
-
-####Familiar with Git?#####
+----------------------------------
 Checkout this repo, install depdencies, then start the gulp process with the following:
 
 ```
@@ -15,12 +14,3 @@ Checkout this repo, install depdencies, then start the gulp process with the fol
 	> npm install
 	> npm start
 ```
-
-####Not Familiar with Git?#####
-Click [here](https://github.com/StephenGrider/ReactStarter/releases) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
-
-```
-	> npm install
-	> npm start
-```
-# react_redux
